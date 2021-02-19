@@ -30,9 +30,3 @@ if (error) {
     console.log(latitude, longitue);
  }
 })
-
-
-
-
-
-
