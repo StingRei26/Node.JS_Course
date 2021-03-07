@@ -1,15 +1,18 @@
 const path = require('path');
 const express = require('express')
+const hbs = require('hbs');
 
 const app = express() 
 
 //Define paths for Express config 
 const publicDirectoryPath = path.join(__dirname, '../public')
-const viewPath =path.join(__dirname, '../templates')
+const viewsPath =path.join(__dirname, '../templates/views')
+const partialsPath =path.join(__dirname, '../templates/partials')
 
 // Set up handlebars engine and views location
 app.set('view engine', 'hbs');
-app.set('views', viewPath)
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath); 
 
 
 //Set up static directory to serve
@@ -19,7 +22,7 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather', 
-        name: 'Rei'
+        name: 'Rei Ravelo', 
     })
 })
 // Using handlebars to serv dynamic html files (about.hbs)
@@ -32,8 +35,9 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
+     helpText: 'This is some helpful text', 
      title: 'Help',
-     message: 'This is the massage'
+     name: 'Rei Ravelo'
     })
 })
 
