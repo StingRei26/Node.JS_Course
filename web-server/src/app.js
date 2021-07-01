@@ -9,7 +9,7 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath =path.join(__dirname, '../templates/views')
 const partialsPath =path.join(__dirname, '../templates/partials')
 
-// Set up handlebars engine and views location
+// Set up handlebars engine and views location / modules needed 
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath); 
@@ -25,7 +25,7 @@ app.get('', (req, res) => {
         name: 'Rei Ravelo', 
     })
 })
-// Using handlebars to serv dynamic html files (about.hbs)
+// Using handlebars to serv dynamic html files using / as the path
 app.get('/about', (req, res) => {
     res.render('about', {
        title: 'About Me', 
@@ -41,6 +41,7 @@ app.get('/help', (req, res) => {
     })
 })
 
+// This leads to a .json files via 'send'
 app.get('/weather', (req, res) => {
     res.send({
         forcast:'It is Nice and Sunny',
