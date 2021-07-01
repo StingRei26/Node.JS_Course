@@ -41,7 +41,7 @@ app.get('/help', (req, res) => {
     })
 })
 
-// This leads to a .json files via 'send' okay hi
+// This leads to a .json files via 'send'
 app.get('/weather', (req, res) => {
     res.send({
         forcast:'It is Nice and Sunny',
