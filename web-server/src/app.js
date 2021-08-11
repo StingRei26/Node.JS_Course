@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express')
 const hbs = require('hbs');
+const { timeStamp } = require('console');
 
 const app = express() 
 
@@ -73,3 +74,4 @@ app.listen(3000, ()=>{
 })
 
 
+timeStamp
